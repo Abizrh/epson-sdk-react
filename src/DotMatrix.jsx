@@ -188,9 +188,6 @@ const ThermalPrinter = () => {
             ))}
         </ol>
       </div>
-      <div id="image-container">
-        <img src={clinic} alt="" />
-      </div>
       {/* <textarea
         id="textToPrint"
         rows="3"
