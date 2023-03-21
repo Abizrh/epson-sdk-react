@@ -10,15 +10,15 @@ encoder
   .size("medium")
   .align("center")
   // .line("_".repeat(80))
-  .newline()
+  // .newline()
   .table(
     [
       { width: 45, align: "right" },
-      { width: 20, align: "left" },
+      { width: 10, align: "left" },
       { width: 25, align: "left" },
     ],
     [
-      [``, `092323`, "10/20/2023"],
+      [``, `092323`, "            10/20/2023"],
       [``, `Abizarah`, ""],
       [``, `22th 1bl 2hr`, ""],
       ["", "Azure", ""],
@@ -35,7 +35,6 @@ encoder
     ],
     [
       ["", "", ""],
-      // ["", (encoder) => encoder.bold().text("KWITANSI").bold(), ""],
     ]
   )
   // .line("_".repeat(80))
@@ -52,22 +51,17 @@ encoder
     [""],
   ])
   .newline()
-  .newline()
-  .newline()
-  .newline()
-  .newline()
   //* footer
   // .line("_".repeat(80))
   .table(
     [
-      { width: 50, align: "left" },
-      { width: 30, align: "left" },
+      { width: 60, align: "left" },
+      { width: 10, align: "left" },
     ],
     [
       [
         "",
-        (encoder) =>
-          encoder.text("Rp. " + String(price))
+        `Rp. ${String(price)}`
       ],
     ]
   )
@@ -75,7 +69,7 @@ encoder
   .newline()
   .table(
     [
-      { width: 10, align: "left" },
+      { width: 20, align: "left" },
       { width: 55, align: "left" },
       { width: 15, align: "left" },
     ],
