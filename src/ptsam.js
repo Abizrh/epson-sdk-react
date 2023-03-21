@@ -67,7 +67,7 @@ encoder
       [
         "",
         (encoder) =>
-          encoder.text("Jumlah : Rp. ").underline().text("Rp. " + String(price)).underline(),
+          encoder.text("Rp. " + String(price))
       ],
     ]
   )
@@ -79,7 +79,7 @@ encoder
       { width: 55, align: "left" },
       { width: 15, align: "left" },
     ],
-    [["", `Terbilang : (  ${numberToWords(price)}`, " )"]]
+    [["", `  ${numberToWords(price)}`, ""]]
   )
   // .line("_".repeat(80))
   .table(
