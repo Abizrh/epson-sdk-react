@@ -4,7 +4,7 @@ import { resultOmzet } from "./encode";
 import { resultInvoice } from "./encode2";
 import samplePDF from "./sample_pdf.pdf";
 import clinic from "./clinic.png";
-import { resultPtsam } from "./ptsam";
+import { resultHastien } from "./hastien.js";
 // import file from "./test.bin";
 // import start from "./encode2";
 
