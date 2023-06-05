@@ -1,12 +1,21 @@
 import EscPosEncoder from "@firdausbaihaqi/esc-pos-encoder";
+import logo from './hastien.png'
+let encoder = new EscPosEncoder({
+    imageMode: 'raster'
+});
 
-let encoder = new EscPosEncoder();
+let img = new Image()
+img.src = `${logo}`
 
 encoder
   .initialize()
   .size("medium")
+  .align('left')
+  .image(img, 320, 320, 'atkinson')
   .align("center")
+  .bold()
   .line("RS Hastien Rengasdengklok")
+  .bold()
   .line(
     "Jl. Cikangkung Barat II. Kec. Rengasdengklok Utara. Kel. Rengasdengklok. Karawang"
   )
@@ -19,17 +28,22 @@ encoder
   .table(
     [
       { width: 20, align: "left" },
-      { width: 20, align: "left" },
       { width: 20, align: "right" },
+      { width: 20, align: "left" },
       { width: 20, align: "right" },
     ],
     [
-      ["NO. RM: ", "0032499", "Tgl. Registrasi:", "27/05/2023 10:08:41"],
-      ["Nama: ", "Dummy", "Tgl. Hasil: ", "27/05/2023 10:08:41"],
+      ["NO. RM         : ", "0032499", "Tgl. Registrasi            :", "27/05/2023 10:08:41"],
+      ['','','',''],
+      ["Nama           : ", "Dummy", "  Tgl. Hasil                 : ", "27/05/2023 10:08:41"],
+      ['','','',''],
       ["Sex / Tgl Lahir: ", "Perempuan/01-01-1990", "Unit Pengantar: ", "HCU"],
-      ["NO. Lab: ", "1031332323212", "Dokter Perujuk: ", "APS"],
-      ["Diagnosa: ", "-"],
-      ["Penjamin: ", "BPJS"],
+      ['','','',''],
+      ["NO. Lab        : ", "1031332323212", "Dokter Perujuk       : ", "APS"],
+      ['','','',''],
+      ["Diagnosa       : ", "-"],
+      ['','','',''],
+      ["Penjamin       : ", "BPJS"],
     ]
   )
   .align("center")
@@ -49,8 +63,8 @@ encoder
   //   .newline()
   .table(
     [
-      { width: 35, align: "left" },
-      { width: 10, align: "left" },
+      { width: 20, align: "left" },
+      { width: 20, align: "left" },
       { width: 20, align: "right" },
       { width: 20, align: "right" },
     ],
