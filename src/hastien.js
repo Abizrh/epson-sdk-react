@@ -7,7 +7,8 @@ let encoder = new EscPosEncoder({
 let img = new Image()
 img.src = `${logo}`
 
-encoder
+img.onload = function(){
+    encoder
   .initialize()
   .size("medium")
   .align('left')
@@ -28,21 +29,16 @@ encoder
   .table(
     [
       { width: 20, align: "left" },
-      { width: 20, align: "right" },
       { width: 20, align: "left" },
-      { width: 20, align: "right" },
+      { width: 20, align: "left" },
+      { width: 20, align: "leftt" },
     ],
     [
       ["NO. RM         : ", "0032499", "Tgl. Registrasi            :", "27/05/2023 10:08:41"],
-      ['','','',''],
       ["Nama           : ", "Dummy", "  Tgl. Hasil                 : ", "27/05/2023 10:08:41"],
-      ['','','',''],
       ["Sex / Tgl Lahir: ", "Perempuan/01-01-1990", "Unit Pengantar: ", "HCU"],
-      ['','','',''],
       ["NO. Lab        : ", "1031332323212", "Dokter Perujuk       : ", "APS"],
-      ['','','',''],
       ["Diagnosa       : ", "-"],
-      ['','','',''],
       ["Penjamin       : ", "BPJS"],
     ]
   )
@@ -65,8 +61,8 @@ encoder
     [
       { width: 20, align: "left" },
       { width: 20, align: "left" },
-      { width: 20, align: "right" },
-      { width: 20, align: "right" },
+      { width: 20, align: "left" },
+      { width: 20, align: "left" },
     ],
     [
       ["", "", ""],
@@ -89,26 +85,28 @@ encoder
       { width: 15, align: "right" },
     ],
     [
-      [`Kasir: test`, "Total", "240.000"],
-      ["", "Diskon (%)", `-`],
+      [``, "", ""],
+      ["", "", ``],
       [
         (encoder) =>
           encoder
             .underline()
             .bold()
-            .text("Terima Kasih Atas Kepercayaan Anda")
+            .text("Kesan / Saran")
             .bold()
             .underline(),
-        "NETTO",
-        (encoder) => encoder.bold().text("240.000").bold(),
+        "",
+        "",
       ],
       [
-        (encoder) => encoder.align("left").text("01/01/2022").align("left"),
+        "",
         "",
         "",
       ],
     ]
   );
+
+}
 
 // add newLine to push the paper out
 for (let i = 0; i < 35; i++) {
