@@ -115,7 +115,7 @@ const ThermalPrinter = () => {
       ];
     } else if (type === "invoice") {
       // startDownload();
-      let x = btoa(String.fromCharCode(...new Uint8Array(resultPtsam)));
+      let x = btoa(String.fromCharCode(...new Uint8Array(resultHastien)));
       console.log("base64: ", x);
       data = [
         {
