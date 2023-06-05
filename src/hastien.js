@@ -7,7 +7,6 @@ let encoder = new EscPosEncoder({
 let img = new Image()
 img.src = `${logo}`
 
-img.onload = function(){
     encoder
   .initialize()
   .size("medium")
@@ -105,8 +104,6 @@ img.onload = function(){
       ],
     ]
   );
-
-}
 
 // add newLine to push the paper out
 for (let i = 0; i < 35; i++) {
