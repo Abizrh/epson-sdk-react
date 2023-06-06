@@ -5,14 +5,23 @@ import { resultInvoice } from "./encode2";
 import samplePDF from "./sample_pdf.pdf";
 import clinic from "./clinic.png";
 import { resultHastien } from "./hastien.js";
+import logo from './hastien.png'
+import { data } from "./utils/data";
+
 // import file from "./test.bin";
 // import start from "./encode2";
 
 const ThermalPrinter = () => {
+  let img = new Image()
+  img.src = `${logo}`
+  // img.onload = (img) => {
+  //   setNimg(img)
+  // }
   const [textToPrint, setTextToPrint] = useState("");
   const [connectionStatus, setConnectionStatus] = useState("");
   const [printers, setPrinters] = useState([]);
   const [selectedPrinter, setSelectedPrinter] = useState(null);
+  const [nImg, setNimg] = useState('')
 
   const ePosDevice = useRef();
 
@@ -25,6 +34,7 @@ const ThermalPrinter = () => {
       qz.websocket
         .connect({ retries: 5, delay: 2 })
         .then(() => {
+          // console.log('new Image: ', nImg)
           setConnectionStatus(STATUS_CONNECTED);
           resolve();
           // alert("Connected!");
@@ -116,7 +126,7 @@ const ThermalPrinter = () => {
     } else if (type === "invoice") {
       // startDownload();
       let x = btoa(String.fromCharCode(...new Uint8Array(resultHastien)));
-      console.log("base64: ", x);
+      // console.log("base64: ", x);
       data = [
         {
           type: "raw",
@@ -171,6 +181,9 @@ const ThermalPrinter = () => {
       >
         Find Printers
       </button> */}
+      {/* { nImg } */}
+      {/* {data.source} */}
+      <img src={data.source}></img>
       <span className="status-label">{connectionStatus}</span>
       <span className="status-label">{selectedPrinter}</span>
 

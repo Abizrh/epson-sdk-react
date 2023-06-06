@@ -1,16 +1,26 @@
 import EscPosEncoder from "@firdausbaihaqi/esc-pos-encoder";
-import logo from './hastien.png'
+import { data } from "./utils/data";
+// import {Image} from 'canvas'
+import { createCanvas } from 'canvas'
+const canvas = createCanvas(100,100)
+const ctx = canvas.getContext('2d')
+
 let encoder = new EscPosEncoder({
-    imageMode: 'raster'
+  imageMode: 'column'
 });
 
-let img = new Image()
-img.src = `${logo}`
+const logo = data.source
 
-    encoder
+let img = new Image()
+img.onload = () => ctx.drawImage(img, 0, 0)
+img.src = logo
+
+console.log('hastien.js : >', img)
+
+encoder
   .initialize()
   .size("medium")
-  .align('left')
+  .align('center')
   .image(img, 320, 320, 'atkinson')
   .align("center")
   .bold()
@@ -30,7 +40,7 @@ img.src = `${logo}`
       { width: 20, align: "left" },
       { width: 20, align: "left" },
       { width: 20, align: "left" },
-      { width: 20, align: "leftt" },
+      { width: 20, align: "left" },
     ],
     [
       ["NO. RM         : ", "0032499", "Tgl. Registrasi            :", "27/05/2023 10:08:41"],
@@ -74,6 +84,7 @@ img.src = `${logo}`
       ["Masa Pembekuan", "7", "5 - 1", "Menit"],
       ["", "", ""],
       ["Masa Pembekuan", "7", "5 - 1", "Menit"],
+      ['-'.repeat(10), '', '', '']
     ]
   )
   .newline()
