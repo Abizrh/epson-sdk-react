@@ -5,15 +5,15 @@ import { resultInvoice } from "./encode2";
 import samplePDF from "./sample_pdf.pdf";
 import clinic from "./clinic.png";
 import { resultHastien } from "./hastien.js";
-import logo from './hastien.png'
+import logo from "./hastien.png";
 import { data } from "./utils/data";
 
 // import file from "./test.bin";
 // import start from "./encode2";
 
 const ThermalPrinter = () => {
-  let img = new Image()
-  img.src = `${logo}`
+  let img = new Image();
+  img.src = `${logo}`;
   // img.onload = (img) => {
   //   setNimg(img)
   // }
@@ -21,7 +21,7 @@ const ThermalPrinter = () => {
   const [connectionStatus, setConnectionStatus] = useState("");
   const [printers, setPrinters] = useState([]);
   const [selectedPrinter, setSelectedPrinter] = useState(null);
-  const [nImg, setNimg] = useState('')
+  const [nImg, setNimg] = useState("");
 
   const ePosDevice = useRef();
 
@@ -90,7 +90,7 @@ const ThermalPrinter = () => {
   //   console.log(this)
   //   context.drawImage(this, 0, 0);
   //   imageContainer.appendChild(canvas);
-    
+
   //   try {
   //     localStorage.setItem("test", this);
   //     localStorage.setItem("image", canvas.toDataURL("image/png"));
@@ -135,17 +135,17 @@ const ThermalPrinter = () => {
           data: x,
         },
       ];
-    }  else if (type === "pdf") {
+    } else if (type === "pdf") {
       data = [
         {
-          type: "pixel",
+          type: "raw",
           format: "pdf",
           flavor: "file",
           // data: file,
           data: samplePDF,
         },
       ];
-    }
+    } 
 
     let config = qz.configs.create(selectedPrinter); // Exact printer name from OS
 
@@ -216,6 +216,9 @@ const ThermalPrinter = () => {
       </button>
       <button disabled={!selectedPrinter} onClick={() => print("omzet")}>
         Test Print Laporan Omzet
+      </button>
+      <button disabled={!selectedPrinter} onClick={() => print("pdf")}>
+        PDF
       </button>
     </div>
   );
